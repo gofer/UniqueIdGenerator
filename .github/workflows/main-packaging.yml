@@ -2,11 +2,8 @@ name: Packaging
 
 on:
     push:
-        branches: [ "feature/add-github-actions" ]
-
-    #push:
-    #    tags:
-    #        - 'v[0-9]+\.[0-9]+\.[0-9]+'
+       tags:
+           - 'v[0-9]+\.[0-9]+\.[0-9]+'
 
 jobs:
     build:
@@ -19,15 +16,15 @@ jobs:
             - name: checkout
               uses: actions/checkout@v4
               with:
-                ref: feature/add-github-actions
+                ref: main
                 fetch-depth: 0
 
-            - name: is on feature/add-github-actions branch
+            - name: is on main branch
               shell: pwsh
               run: |
                 $branches = git branch --contains '${{ github.ref_name }}' | foreach { $_.Trim(' *') }
                 foreach ($branch in $branches) {
-                    if ($branch -eq 'feature/add-github-actions') {
+                    if ($branch -eq 'main') {
                         exit 0
                     }
                 }
