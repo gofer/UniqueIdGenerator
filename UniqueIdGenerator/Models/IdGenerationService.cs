@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using UUIDNext;
+﻿using UUIDNext;
 
 namespace UniqueIdGenerator.Models;
 
