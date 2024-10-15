@@ -2,8 +2,11 @@ name: Packaging
 
 on:
     push:
-        tags:
-            - 'v[0-9]+\.[0-9]+\.[0-9]+'
+        branches: [ "feature/add-github-actions" ]
+
+    #push:
+    #    tags:
+    #        - 'v[0-9]+\.[0-9]+\.[0-9]+'
 
 jobs:
     build:
